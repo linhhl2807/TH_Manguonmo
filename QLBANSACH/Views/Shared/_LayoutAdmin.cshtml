@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <title>BookStore</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="~/Content/prettyPhoto.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="~/Content/all3.css" media="screen" />
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/jquery.prettyPhoto.js"></script>
+
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="~/tinymce_6.4.2/tinymce_6.4.2/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' })</script>
+    <style>
+        #left {
+            min-height: 660px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="wrapper-top"> </div>
+        <div id="left">
+
+            <ul class="menu">
+                <li>
+                    @Html.ActionLink("TRANG CHỦ", "Index", "Adnin")
+                </li>
+                <li>
+                    @Html.ActionLink("Quản lý chủ đề", "Dangky", "Adnin")
+                </li>
+                <li>
+                    @Html.ActionLink("Quản lý Nhà xuất bản", "Dangnhap", "Adnin")
+                </li>
+                <li>
+                    @Html.ActionLink("Quản lý sách", "Sach", "Admin")
+                </li>
+                <li>
+
+                    <ul class="sub-menu">
+                        @Html.Action("Chude", "BookStore")
+                    </ul>
+                </li>
+                <li>
+                    <a class="opened" href="#">Nhà sản xuất</a>
+                    <ul class="sub-menu">
+                        @Html.Action("Nhaxuatban", "BookStore")
+                    </ul>
+                </li>
+
+            </ul>
+            <div id="left-bottom">
+                <div class="social">
+                    <span>Social:</span>
+                    <ul>
+                        <li><a class="tumblr" href="#">tumblr</a></li>
+                        <li><a class="picasa" href="#">picasa</a></li>
+                        <li><a class="vimeo" href="#">vimeo</a></li>
+                        <li><a class="flickr" href="#">flickr</a></li>
+                        <li><a class="twitter" href="#">twitter</a></li>
+                        <li><a class="facebook" href="#">facebook</a></li>
+                        <li><a class="rss" href="#">rss</a></li>
+                    </ul>
+                </div>
+                <div class="search">
+                    <form action="#" method="get">
+                        <fieldset>
+                            <div class="left">
+                                <input type="text" value="" />
+                            </div>
+                            <div class="right">
+                                <input type="submit" value="" />
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <ul class="thumbnails">
+                <div>
+                    @RenderBody()
+                </div>
+            </ul>
+
+        </div>
+        <div id="wrapper-bottom"> </div>
+    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
+    <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div>
+
+</body>
+</html>

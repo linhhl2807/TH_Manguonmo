@@ -1,0 +1,83 @@
+﻿@model QLBANSACH.Models.SACH
+
+@{
+    ViewBag.Title = "Chitietsach";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align: center; font-size: 30px;">THÔNG TIN CHI TIẾT SÁCH</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="float: left; width: 100px;">
+            Tên sách:
+        </dt>
+
+        <dd style="margin:20px;">
+            @Html.DisplayFor(model => model.Tensach)
+        </dd>
+
+        <dt style="float: left; width: 100px;">
+            Giá bán:
+        </dt>
+
+        <dd style="margin:20px;">
+            @String.Format("{0:0,0}", Model.Giaban) VNĐ
+        </dd>
+
+        <dt style="float: left; width: 100px;">
+            Mô tả:
+        </dt>
+
+        <dd style="width:600px; text-align:justify;margin:20px;">
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt style="float: left; width: 100px;">
+            Ảnh bìa:
+        </dt>
+
+        <dd style="margin:20px;">
+            <img src="@Url.Content("~/images/" + Model.Anhbia)" width="120px" />
+        </dd>
+
+        <dt style="float: left; width: 100px;">
+            Ngày cập nhật:
+        </dt>
+
+        <dd style="margin:20px;">
+            @string.Format("{0:dd/MM/yyyy}", Model.Ngaycapnhat)
+        </dd>
+
+        <dt style="float: left; width: 100px;">
+            Số lượng tồn:
+        </dt>
+
+        <dd style="margin:20px;">
+            @Html.DisplayFor(model => model.Soluongton)
+        </dd>
+
+        <dt style="float: left; width: 100px;">
+            CHủ đề
+        </dt>
+
+        <dd style="margin:20px;">
+            @Html.DisplayFor(model => model.MaCD)
+        </dd>
+
+        <dt style="float: left; width: 100px;">
+            Nhà xuất bản:
+        </dt>
+
+        <dd style="margin:20px;">
+            @Html.DisplayFor(model => model.MaNXB)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("  Điều chỉnh", "Suasach", new { id = Model.Masach }) |
+    @Html.ActionLink("Trở về", "Sach")
+</p>

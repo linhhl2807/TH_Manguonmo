@@ -1,0 +1,37 @@
+﻿<style type="test/css">
+    #Datmua a{
+        clear:both; background-color: red;
+        color:white; width:120px; height:35px;
+        display:block; float:right; text-align:center;
+        padding-top: 10px; text-decoration:none; font-weight:bold;
+
+    }
+    #Datmua a:hover {
+        background-color:gray;
+        color:red;
+    }
+</style>
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>Thông tin chi tiết sách</h2>
+<div>
+    <div style="width:40%; float:left; border-left: dotted 1px; border-color:azure">
+        <img src="~/images/@Model.Anhbia" width="100%"/>
+    </div>
+    <div style="width:100%; float:none; padding:10px;">
+        <h4 style="font-weight: bold; color: red; margin-bottom: 10px;">Tên sách: @Model.Tensach</h4>
+        <p style="text-align: justify; margin-bottom: 10px;"><span style="font-weight: boid;">Mô tả:</span>@Model.Mota</p>
+        <p style="font-weight:bold">Giá bán: <span style="color: red; font-size: 16pt;">@Model.Giaban VNĐ</span></p>
+    </div>
+    <div>
+        <div id="Datmua">
+            <a href="@Url.Action("ThemGiohang", "GioHang", new {@iMasach = @Model.Masach, @strURL=Request.Url.ToString() })" class="list-group-item" style="border: 10px solid red; margin-top: 300px; float: right; margin-right: 30px;background-color:red; color:white;">
+                Đặt mua
+            </a>
+        </div>
+    </div>
+</div>
+

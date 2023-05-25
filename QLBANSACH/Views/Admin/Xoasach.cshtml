@@ -1,0 +1,107 @@
+﻿@model QLBANSACH.Models.SACH
+
+@{
+    ViewBag.Title = "Chitietsach";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>XÁC NHẬN THÔNG TIN SÁCH CẦN XÓA</h2>
+
+<h3 style="margin:20px;">Bạn quyết định xóa sách này?</h3>
+<style>
+    #left {
+      
+    }
+
+    dd {
+        margin:20px;
+    }
+
+    dt {
+        float: left;
+        width: 160px;
+    }
+    div{
+        font-size:15px;
+    }
+</style>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên sách:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tensach)
+        </dd>
+
+        <dt>
+            Giá bán:
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,0}", Model.Giaban) VNĐ
+        </dd>
+
+        <dt>
+            Mô tả:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt>
+            Ảnh bìa:
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/images/" + Model.Anhbia)" width="120px" />
+        </dd>
+
+        <dt>
+            Ngày cập nhật:
+        </dt>
+
+        <dd>
+            @string.Format("{0:dd/MM/yyyy}", Model.Ngaycapnhat)
+        </dd>
+
+        <dt>
+            Số lượng tồn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluongton)
+        </dd>
+
+        <dt>
+            CHủ đề
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaCD)
+        </dd>
+
+        <dt>
+            Nhà xuất bản:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNXB)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+        <div class="form-actions no-gutters color">
+            <input type="submit" value="Xóa" class="btn btn-default" />
+            @Html.ActionLink("TRỜ VỀ", "Sach")
+        </div>
+            }
+</div>

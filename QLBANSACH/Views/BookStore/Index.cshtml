@@ -1,0 +1,72 @@
+﻿@using QLBANSACH.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SACH>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2 style="padding-top: 20px;">Sách mới</h2>
+<div class="row">
+    @foreach (var sach in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <ul class="product_box" style="display:inline-block;float:left;">
+                <a href="@Url.Action("Details", "BookStore", new { id = sach.Masach })" style="float:left;margin:20px; height:230px;">
+                    <div class="hinhanh_sanpham" style="display: flex; flex-wrap: wrap; ">
+                        <img alt="@sach.Tensach" src="~/images/@sach.Anhbia" width="100px" />
+                    </div>
+                    <div>
+                        <br />
+                        <h4 style="height:40px;">
+                            @sach.Tensach
+                        </h4>
+
+                        <p></p>
+                        <div class="ratings">
+                            <p class="pull-right">16 reviews</p>
+                            <p style="color: #ff8b00;">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </ul>
+        </div>
+
+    }
+    @* Tạo liên kết trang *@
+    <div class="sotrang">
+       
+    </div>
+    <div class="MenuTrang">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+    <style>
+        .MenuTrang {
+            padding-top: 700px;
+            
+        }
+        .MenuTrang li {
+            display: inline;
+            margin-top: 10px;
+        }
+
+        #right .thumbnails li {
+            margin-top: 20px;
+        }
+
+        .sotrang {
+        }
+    </style>
+
+</div>
+
